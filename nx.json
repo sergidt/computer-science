@@ -25,6 +25,9 @@
     "algorithms-e2e": {
       "tags": [],
       "implicitDependencies": ["algorithms"]
+    },
+    "back-tracking": {
+      "tags": ["algorithm"]
     }
   }
 }

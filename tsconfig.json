@@ -15,7 +15,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@computer-science/back-tracking": ["libs/back-tracking/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

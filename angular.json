@@ -25,7 +25,10 @@
               "apps/algorithms/src/favicon.ico",
               "apps/algorithms/src/assets"
             ],
-            "styles": ["apps/algorithms/src/styles.scss"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "apps/algorithms/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -83,7 +86,10 @@
               "apps/algorithms/tsconfig.app.json",
               "apps/algorithms/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/algorithms/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/algorithms/**"
+            ]
           }
         },
         "test": {
@@ -118,9 +124,49 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/algorithms-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/algorithms-e2e/**"]
+            "tsConfig": [
+              "apps/algorithms-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/algorithms-e2e/**"
+            ]
           }
+        }
+      }
+    },
+    "back-tracking": {
+      "projectType": "library",
+      "root": "libs/back-tracking",
+      "sourceRoot": "libs/back-tracking/src",
+      "prefix": "computer-science",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/back-tracking/tsconfig.lib.json",
+              "libs/back-tracking/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/back-tracking/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/back-tracking/jest.config.js",
+            "tsConfig": "libs/back-tracking/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/back-tracking/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
         }
       }
     }
