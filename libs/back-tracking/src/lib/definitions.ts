@@ -1,11 +1,31 @@
+
 export type SudokuBoard  = Array<Array<number>>;
 export type Location = [number, number];
 export type SudokuMap = {
   [key: string]: SudokuBoard;
 }
 
+export enum SudokuDifficulty {
+Easy= 'Easy',
+  Difficult = 'Difficult',
+  VeryDifficult = 'Very difficult'
+}
+
+const UNASSIGNED = 0;
+
 export const SUDOKUS: SudokuMap = {
-  Difficult: [
+  [SudokuDifficulty.VeryDifficult]: [
+    [3, 0, 0, 5, 0, 8, 4, 0, 0],
+    [5, 2, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 7, 0, 0, 0, 0, 3, 1],
+    [0, 0, 3, 0, 0, 0, 0, 8, 0],
+    [9, 0, 0, 8, 6, 3, 0, 0, 5],
+    [0, 5, 0, 0, 0, 0, 6, 0, 0],
+    [1, 3, 0, 0, 0, 0, 2, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 7, 0],
+    [0, 0, 5, 2, 0, 6, 3, 0, 0]
+  ],
+  [SudokuDifficulty.Difficult]: [
     [3, 0, 6, 5, 0, 8, 4, 0, 0],
     [5, 2, 0, 0, 0, 0, 0, 0, 0],
     [0, 8, 7, 0, 0, 0, 0, 3, 1],
@@ -16,7 +36,7 @@ export const SUDOKUS: SudokuMap = {
     [0, 0, 0, 0, 0, 0, 0, 7, 4],
     [0, 0, 5, 2, 0, 6, 3, 0, 0]
   ],
-  Easy: [
+  [SudokuDifficulty.Easy]: [
     [0, 1, 6, 5, 7, 8, 4, 9, 2],
     [5, 2, 9, 1, 3, 4, 7, 6, 8],
     [4, 8, 7, 6, 2, 9, 5, 3, 1],
@@ -36,19 +56,14 @@ export const range = (start: number, end: number): Array<number> =>
 function findEmptyLocation(board: SudokuBoard): Location {
   for (const row of range(0, 8))
     for (const col of range(0, 8))
-      if (board[row][col] === 0) {
+      if (board[row][col] === UNASSIGNED) {
         return [row, col];
       }
   return null;
 }
 
-function usedInRow(board: SudokuBoard, row: number, value: number): boolean {
-  for (const i of range(0, 8))
-    if (board[row][i] === value)
-      return true;
+const usedInRow = (board: SudokuBoard, row: number, value: number) => board[row].includes(value);
 
-  return false;
-}
 
 function usedInCol(board: SudokuBoard, col: number, value: number): boolean {
   for (const i of range(0, 8))
@@ -61,7 +76,7 @@ function usedInCol(board: SudokuBoard, col: number, value: number): boolean {
 function usedInBox(board: SudokuBoard, row: number, col: number, value: number): boolean {
   for (const i of range(0, 2))
     for (const j of range(0, 2))
-      if (board[i + row][j + col] === value)
+      if (board[i + (row - row % 3)][j + (col - col % 3)] === value)
         return true;
 
   return false;
@@ -72,26 +87,23 @@ const checkIsSafeLocation = (board: SudokuBoard, row: number, col: number, value
 
 
 export function solveSudoku(board: SudokuBoard): boolean {
-//console.log(board);
   const emptyLocation = findEmptyLocation(board);
+
   if (!emptyLocation)
     return true; // sudoku is solved!!
 
   const [row, column] = emptyLocation;
-  console.log(`Empty position: (${row}, ${column})`);
 
   for (const value of range(1, 9)) {
     // if looks promising (empty position)
     if (checkIsSafeLocation(board, row, column, value)) {
-      console.log(`Position: (${row}, ${column}) accepts value: ${value}`);
       board[row][column] = value;
-      console.log(`row: ${row}, col: ${column}: `, board);
-      
+
       if (solveSudoku(board)) // if is solved returns!!!
         return true;
 
       // not solved, reset location and try again
-      board[row][column] = 0;
+      board[row][column] = UNASSIGNED;
     }
   }
 

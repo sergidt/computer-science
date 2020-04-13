@@ -36,12 +36,25 @@ https://www.geeksforgeeks.org/sudoku-backtracking-7/
   If all digits have been tried and nothing worked, return false
 </pre>
 
+<mat-divider></mat-divider>
+
 <div class="sudoku-container">
-  <div *ngFor="let row of sudoku; let i = index" class="sudoku-row">
-    <div *ngFor="let col of row; let j = index"
-         class="sudoku-col"
-         [style.background-color]="!col ? '#E5E8E8' : 'none'">
-      <span [style.opacity]="col">{{col}}</span>
+  <div class="buttons">
+    <mat-button-toggle-group
+        [value]="SudokuDifficulty.Difficult"
+        (change)="changeDifficulty($event.value)">
+      <mat-button-toggle *ngFor="let difficulty of difficulties" [value]="difficulty">{{difficulty}}</mat-button-toggle>
+    </mat-button-toggle-group>
+    <button mat-raised-button color="primary" (click)="solveSudoku()">Solve</button>
+  </div>
+
+  <div class="sudoku-container">
+    <div *ngFor="let row of sudoku; let i = index" class="sudoku-row">
+      <div *ngFor="let col of row; let j = index"
+           class="sudoku-col"
+           [style.background-color]="!col ? '#E5E8E8' : 'none'">
+        <span [style.opacity]="col">{{col}}</span>
+      </div>
     </div>
   </div>
 </div>
