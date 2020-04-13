@@ -1,5 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { SudokuBoard, SUDOKUS, solveSudoku, SudokuDifficulty } from './definitions';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'computer-science-back-tracking',
@@ -8,26 +7,27 @@ import { SudokuBoard, SUDOKUS, solveSudoku, SudokuDifficulty } from './definitio
 })
 export class BackTrackingComponent {
 
-  sudoku: SudokuBoard = [...SUDOKUS.Difficult];
-  SudokuDifficulty = SudokuDifficulty;
+  markdown = `# Backtracking
+---
 
-  difficulties = [
-    SudokuDifficulty.Easy,
-    SudokuDifficulty.Difficult,
-    SudokuDifficulty.VeryDifficult
-  ];
+Is a general algorithm for finding all (or some) solutions to some computational problems, notably constraint satisfaction problems, that incrementally builds candidates to the solutions, and abandons a candidate ("backtracks") as soon as it determines that the candidate cannot possibly be completed to a valid solution.
 
-  constructor(private cd: ChangeDetectorRef) { }
+## General algorithm (pseudo-code)
+\`\`\`typescript
+findSolutions(n, other params)
+    if (found a solution)
+      solutionsFound = solutionsFound + 1;
+      displaySolution();
+      if (solutionsFound >= solutionTarget)
+        exit;
+  return
 
-  solveSudoku() {
-    console.time('solving-sudoku');
-    solveSudoku(this.sudoku);
-    console.timeEnd('solving-sudoku');
-    this.cd.markForCheck();
-  }
+  for (val = first to last)
+    if (isValid(val, n))
+      applyValue(val, n);
+      findSolutions(n+1, other params);
+      removeValue(val, n);
+\`\`\`
+`;
 
-  changeDifficulty(difficulty: SudokuDifficulty) {
-    this.sudoku = [...SUDOKUS[difficulty]];
-    this.cd.markForCheck();
-  }
 }

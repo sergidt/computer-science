@@ -1,0 +1,58 @@
+$cell-width: 30px;
+
+:host {
+  .buttons {
+    mat-button-toggle-group {
+      margin-right: 50px;
+
+      mat-button-toggle {
+        width: 100px;
+      }
+    }
+
+    button {
+      height: 48px;
+    }
+  }
+}
+
+.sudoku-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.sudoku-row {
+  display: flex;
+  width: $cell-width * 9;
+  border-bottom: solid 1px darkgray;
+
+  &:first-child {
+    border-top: solid 2px black;
+  }
+
+  &:nth-child(3n) {
+    border-bottom: solid 2px black;
+  }
+}
+
+.sudoku-col {
+  width: $cell-width;
+  height: $cell-width;
+  border-right: solid 1px darkgray;
+  line-height: $cell-width;
+  width: $cell-width;
+  text-align: center;
+  vertical-align: middle;
+
+  &:first-child {
+    border-left: solid 2px black;
+  }
+
+  &:nth-child(3n) {
+    border-right: solid 2px black;
+  }
+}
