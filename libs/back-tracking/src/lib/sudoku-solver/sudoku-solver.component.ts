@@ -2,7 +2,7 @@ import { Component, ChangeDetectorRef } from '@angular/core';
 import { SUDOKUS, SudokuBoard, SudokuDifficulty, solveSudoku } from './definitions';
 
 @Component({
-  selector: 'computer-science-sudoku-solver',
+  selector: 'compurter-science-sudoku-solve',
   templateUrl: './sudoku-solver.component.html',
   styleUrls: ['./sudoku-solver.component.scss']
 })

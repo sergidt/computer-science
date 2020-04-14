@@ -7,6 +7,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MarkdownModule } from 'ngx-markdown';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,7 +18,10 @@ import { AppRoutingModule } from './app-routing.module';
             MatToolbarModule,
             HttpClientModule,
             AppRoutingModule,
-            MarkdownModule.forRoot()
+            MarkdownModule.forRoot(),
+            MatSidenavModule,
+            MatIconModule,
+            MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

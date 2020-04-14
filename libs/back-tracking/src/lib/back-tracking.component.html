@@ -1,3 +1,11 @@
 <markdown [data]="markdown"></markdown>
 
+<mat-divider></mat-divider>
+
+<h1>Implementations</h1>
+
+<mat-button-toggle-group value="sudoku" (change)="activeRoute($event.value)">
+  <mat-button-toggle value="sudoku">Sudoku Solver</mat-button-toggle>
+</mat-button-toggle-group>
+
 <router-outlet></router-outlet>

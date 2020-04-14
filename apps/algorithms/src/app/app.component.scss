@@ -2,5 +2,24 @@
   display: block;
   font-family: sans-serif;
   width: 100%;
+
+  mat-drawer-container {
+    position: absolute;
+    width: 100%;
+    top: 64px;
+    bottom: 0;
+
+    mat-drawer {
+      width: 200px;
+
+      .drawer-content {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
 }
 

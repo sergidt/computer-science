@@ -1,4 +1,8 @@
 :host {
   display: block;
   margin: 16px;
+
+  mat-divider, mat-button-toggle-group  {
+    margin-bottom: 20px;
+  }
 }

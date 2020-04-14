@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'computer-science-back-tracking',
@@ -6,6 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./back-tracking.component.scss']
 })
 export class BackTrackingComponent {
+  constructor(public router: Router){
+  }
+
+  activeRoute(route) {
+
+  }
 
   markdown = `# Backtracking
 ---
@@ -29,5 +36,4 @@ findSolutions(n, other params)
       removeValue(val, n);
 \`\`\`
 `;
-
 }

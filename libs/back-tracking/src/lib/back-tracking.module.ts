@@ -7,6 +7,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDividerModule } from '@angular/material/divider';
 import { MarkdownModule } from 'ngx-markdown';
 import { SudokuSolverComponent } from './sudoku-solver/sudoku-solver.component';
+import { BacktrackingRoutingModule } from './backtracking-routing.module';
 
 @NgModule({
   imports: [
@@ -15,9 +16,7 @@ import { SudokuSolverComponent } from './sudoku-solver/sudoku-solver.component';
     MatButtonToggleModule,
     MatDividerModule,
     MarkdownModule,
-    RouterModule.forChild([
-     {path: '', component: SudokuSolverComponent}
-    ]),
+    BacktrackingRoutingModule,
     MatDividerModule
   ],
   declarations: [BackTrackingComponent, SudokuSolverComponent],
