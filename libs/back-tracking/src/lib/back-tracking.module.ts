@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { BackTrackingComponent } from './back-tracking.component';
@@ -8,6 +8,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MarkdownModule } from 'ngx-markdown';
 import { SudokuSolverComponent } from './sudoku-solver/sudoku-solver.component';
 import { BacktrackingRoutingModule } from './backtracking-routing.module';
+import { SharedUiComponentsModule } from '@computer-science/shared/ui-components';
 
 @NgModule({
   imports: [
@@ -17,9 +18,11 @@ import { BacktrackingRoutingModule } from './backtracking-routing.module';
     MatDividerModule,
     MarkdownModule,
     BacktrackingRoutingModule,
-    MatDividerModule
+    MatDividerModule,
+    SharedUiComponentsModule
   ],
   declarations: [BackTrackingComponent, SudokuSolverComponent],
+  schemas: [NO_ERRORS_SCHEMA],
   exports: [BackTrackingComponent]
 })
 export class BackTrackingModule {}

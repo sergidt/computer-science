@@ -20,7 +20,7 @@
   },
   "projects": {
     "algorithms": {
-      "tags": []
+      "tags": ["application"]
     },
     "algorithms-e2e": {
       "tags": [],
@@ -30,7 +30,7 @@
       "tags": ["algorithm"]
     },
     "shared-ui-components": {
-      "tags": []
+      "tags": ["ui-components"]
     }
   }
 }

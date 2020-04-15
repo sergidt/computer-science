@@ -60,8 +60,12 @@
         "allow": [],
         "depConstraints": [
           {
-            "sourceTag": "*",
+            "sourceTag": "application",
             "onlyDependOnLibsWithTags": ["*"]
+          },
+          {
+            "sourceTag": "algorithm",
+            "onlyDependOnLibsWithTags": ["ui-components"]
           }
         ]
       }
