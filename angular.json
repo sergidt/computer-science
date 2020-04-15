@@ -33,7 +33,7 @@
             "scripts": [
               "node_modules/prismjs/prism.js",
               "node_modules/prismjs/components/prism-typescript.min.js",
-             "node_modules/prismjs/components/prism-css.min.js"
+              "node_modules/prismjs/components/prism-css.min.js"
             ]
           },
           "configurations": {
@@ -91,10 +91,7 @@
               "apps/algorithms/tsconfig.app.json",
               "apps/algorithms/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/algorithms/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/algorithms/**"]
           }
         },
         "test": {
@@ -129,13 +126,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/algorithms-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/algorithms-e2e/**"
-            ]
+            "tsConfig": ["apps/algorithms-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/algorithms-e2e/**"]
           }
         }
       }
@@ -153,10 +145,7 @@
               "libs/back-tracking/tsconfig.lib.json",
               "libs/back-tracking/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/back-tracking/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/back-tracking/**"]
           }
         },
         "test": {
@@ -166,6 +155,38 @@
             "tsConfig": "libs/back-tracking/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/back-tracking/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "shared-ui-components": {
+      "projectType": "library",
+      "root": "libs/shared/ui-components",
+      "sourceRoot": "libs/shared/ui-components/src",
+      "prefix": "computer-science",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/ui-components/tsconfig.lib.json",
+              "libs/shared/ui-components/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/shared/ui-components/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/ui-components/jest.config.js",
+            "tsConfig": "libs/shared/ui-components/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/shared/ui-components/src/test-setup.ts"
           }
         }
       },

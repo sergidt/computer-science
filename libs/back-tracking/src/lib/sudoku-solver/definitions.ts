@@ -1,4 +1,3 @@
-
 export type SudokuBoard  = Array<Array<number>>;
 export type Location = [number, number];
 export type SudokuMap = {
@@ -106,7 +105,6 @@ export function solveSudoku(board: SudokuBoard): boolean {
       board[row][column] = UNASSIGNED;
     }
   }
-
   return false;
 }
 

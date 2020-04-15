@@ -28,6 +28,9 @@
     },
     "back-tracking": {
       "tags": ["algorithm"]
+    },
+    "shared-ui-components": {
+      "tags": []
     }
   }
 }

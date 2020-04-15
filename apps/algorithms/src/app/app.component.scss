@@ -12,6 +12,25 @@
     mat-drawer {
       width: 200px;
 
+      .menu-item {
+        height: 32px;
+        background-color: #494949;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #808080;
+        }
+
+        a {
+          margin-left: 20px;
+          text-decoration-line: none;
+          color: white;
+          line-height: 32px;
+          width: 100%;
+          display: block;
+        }
+      }
+
       .drawer-content {
         display: flex;
         height: 100%;
