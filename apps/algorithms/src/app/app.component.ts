@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { routes } from './app-routing.module';
+import { RouterLinkActive, ActivatedRoute, Router, ActivationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'computer-science-root',
@@ -9,7 +11,14 @@ import { routes } from './app-routing.module';
 export class AppComponent {
   routes = routes.filter(_ => _?.data?.label);
 
-  constructor() {
-    console.log(this.routes);
+  section = '';
+
+  constructor(public router: Router, private cd: ChangeDetectorRef) {
+    this.router.events
+        .pipe(filter(_ => _ instanceof ActivationEnd))
+        .subscribe((_: ActivationEnd) => {
+          this.section = _.snapshot.data.label;
+          this.cd.markForCheck();
+        });
   }
 }
