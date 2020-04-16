@@ -1,6 +1,6 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { routes } from './app-routing.module';
-import { RouterLinkActive, ActivatedRoute, Router, ActivationEnd } from '@angular/router';
+import { Router, ActivationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
 @Component({
