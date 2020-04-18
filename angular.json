@@ -195,6 +195,38 @@
           "style": "scss"
         }
       }
+    },
+    "sorting": {
+      "projectType": "library",
+      "root": "libs/sorting",
+      "sourceRoot": "libs/sorting/src",
+      "prefix": "computer-science",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/sorting/tsconfig.lib.json",
+              "libs/sorting/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/sorting/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/sorting/jest.config.js",
+            "tsConfig": "libs/sorting/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/sorting/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

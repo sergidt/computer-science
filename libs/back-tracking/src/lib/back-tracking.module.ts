@@ -9,6 +9,7 @@ import { MarkdownModule } from 'ngx-markdown';
 import { SudokuSolverComponent } from './sudoku-solver/sudoku-solver.component';
 import { BacktrackingRoutingModule } from './backtracking-routing.module';
 import { SharedUiComponentsModule } from '@computer-science/shared/ui-components';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { SharedUiComponentsModule } from '@computer-science/shared/ui-components
     MatButtonToggleModule,
     MatDividerModule,
     MarkdownModule,
+    MatCardModule,
     BacktrackingRoutingModule,
     MatDividerModule,
     SharedUiComponentsModule

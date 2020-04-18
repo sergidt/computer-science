@@ -9,8 +9,8 @@
 
 <mat-drawer-container autosize>
   <mat-drawer #drawer mode="side">
-    <div class="menu-item">
-    <a *ngFor="let route of routes" [routerLink]="'/' + route.path">{{route.data.label}}</a>
+    <div *ngFor="let route of routes" class="menu-item">
+    <a  [routerLink]="'/' + route.path">{{route.data.label}}</a>
     </div>
   </mat-drawer>
 

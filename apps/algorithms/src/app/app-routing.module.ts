@@ -9,6 +9,13 @@ export const routes: Routes = [
     },
     loadChildren: () => import('../../../../libs/back-tracking/src/lib/back-tracking.module').then(m => m.BackTrackingModule)
   },
+  {
+    path: 'sorting',
+    data: {
+      label: 'Sorting'
+    },
+    loadChildren: () => import('../../../../libs/sorting/src/lib/sorting.module').then(m => m.SortingModule)
+  },
   //{ path: '', redirectTo: 'dashboard', pathMatch: 'full' }
 
 

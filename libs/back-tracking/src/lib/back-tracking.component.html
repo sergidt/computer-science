@@ -1,8 +1,14 @@
-<markdown [data]="markdown"></markdown>
-
-<div class="sub-section">Implementations</div>
-<mat-button-toggle-group value="sudoku" (change)="activeRoute($event.value)">
-  <mat-button-toggle value="sudoku">Sudoku Solver</mat-button-toggle>
-</mat-button-toggle-group>
-
+<mat-card>
+  <mat-card-content>
+    <markdown [data]="markdown"></markdown>
+  </mat-card-content>
+  <mat-card-actions>
+    <mat-card-title>Examples</mat-card-title>
+    <mat-button-toggle-group value="sudoku" (change)="activeRoute($event.value)">
+      <mat-button-toggle value="sudoku">Sudoku Solver</mat-button-toggle>
+    </mat-button-toggle-group>
+  </mat-card-actions>
+</mat-card>
+<div class="algorithm-implementations">
 <router-outlet></router-outlet>
+</div>

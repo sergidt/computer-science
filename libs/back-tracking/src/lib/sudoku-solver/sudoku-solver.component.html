@@ -1,32 +1,35 @@
-<div class="mat-h2">Sudoku Solver</div>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Sudoku Solver</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <computer-science-code-preview-tabs>
+      <result-tab>
+        <div class="sudoku-container">
+          <div class="buttons">
+            <mat-button-toggle-group
+                [value]="SudokuDifficulty.Difficult"
+                (change)="changeDifficulty($event.value)">
+              <mat-button-toggle *ngFor="let difficulty of difficulties" [value]="difficulty">{{difficulty}}</mat-button-toggle>
+            </mat-button-toggle-group>
+            <button mat-raised-button color="primary" (click)="solveSudoku()">Solve</button>
+          </div>
 
-<mat-divider></mat-divider>
-
-<computer-science-code-preview-tabs>
-  <result-tab>
-    <div class="sudoku-container">
-      <div class="buttons">
-        <mat-button-toggle-group
-            [value]="SudokuDifficulty.Difficult"
-            (change)="changeDifficulty($event.value)">
-          <mat-button-toggle *ngFor="let difficulty of difficulties" [value]="difficulty">{{difficulty}}</mat-button-toggle>
-        </mat-button-toggle-group>
-        <button mat-raised-button color="primary" (click)="solveSudoku()">Solve</button>
-      </div>
-
-      <div class="sudoku-container">
-        <div *ngFor="let row of sudoku; let i = index" class="sudoku-row">
-          <div *ngFor="let col of row; let j = index"
-               class="sudoku-col"
-               [style.background-color]="!col ? '#E5E8E8' : 'none'">
-            <span [style.opacity]="col">{{col}}</span>
+          <div class="sudoku-container">
+            <div *ngFor="let row of sudoku; let i = index" class="sudoku-row">
+              <div *ngFor="let col of row; let j = index"
+                   class="sudoku-col"
+                   [style.background-color]="!col ? '#E5E8E8' : 'none'">
+                <span [style.opacity]="col">{{col}}</span>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </result-tab>
+      </result-tab>
 
-  <code-tab>
-    <markdown [data]="markdown"></markdown>
-  </code-tab>
-</computer-science-code-preview-tabs>
+      <code-tab>
+        <markdown [data]="markdown"></markdown>
+      </code-tab>
+    </computer-science-code-preview-tabs>
+  </mat-card-content>
+</mat-card>

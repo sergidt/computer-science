@@ -17,9 +17,8 @@
     "baseUrl": ".",
     "paths": {
       "@computer-science/back-tracking": ["libs/back-tracking/src/index.ts"],
-      "@computer-science/shared/ui-components": [
-        "libs/shared/ui-components/src/index.ts"
-      ]
+      "@computer-science/shared/ui-components": ["libs/shared/ui-components/src/index.ts"],
+      "@computer-science/sorting": ["libs/sorting/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
