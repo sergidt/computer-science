@@ -91,16 +91,14 @@
               "apps/algorithms/tsconfig.app.json",
               "apps/algorithms/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/algorithms/**"]
+            "exclude": ["**/node_modules/**", "!apps/algorithms/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/algorithms/jest.config.js",
-            "tsConfig": "apps/algorithms/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "apps/algorithms/src/test-setup.ts"
+            "passWithNoTests": true
           }
         }
       }
@@ -127,7 +125,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": ["apps/algorithms-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/algorithms-e2e/**"]
+            "exclude": ["**/node_modules/**", "!apps/algorithms-e2e/**/*"]
           }
         }
       }
@@ -145,16 +143,14 @@
               "libs/back-tracking/tsconfig.lib.json",
               "libs/back-tracking/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/back-tracking/**"]
+            "exclude": ["**/node_modules/**", "!libs/back-tracking/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/back-tracking/jest.config.js",
-            "tsConfig": "libs/back-tracking/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/back-tracking/src/test-setup.ts"
+            "passWithNoTests": true
           }
         }
       },
@@ -177,16 +173,14 @@
               "libs/shared/ui-components/tsconfig.lib.json",
               "libs/shared/ui-components/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/shared/ui-components/**"]
+            "exclude": ["**/node_modules/**", "!libs/shared/ui-components/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/shared/ui-components/jest.config.js",
-            "tsConfig": "libs/shared/ui-components/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/shared/ui-components/src/test-setup.ts"
+            "passWithNoTests": true
           }
         }
       },
@@ -209,16 +203,14 @@
               "libs/sorting/tsconfig.lib.json",
               "libs/sorting/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/sorting/**"]
+            "exclude": ["**/node_modules/**", "!libs/sorting/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/sorting/jest.config.js",
-            "tsConfig": "libs/sorting/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/sorting/src/test-setup.ts"
+            "passWithNoTests": true
           }
         }
       },
